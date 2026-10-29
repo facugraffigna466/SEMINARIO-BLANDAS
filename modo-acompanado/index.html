@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Modo Acompañado</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- La tienda + Siempre Cerca, a pantalla completa -->
+  <div class="store" id="store"></div>
+
+  <!-- Herramientas para presentar (no son parte del producto) -->
+  <button type="button" class="pres-fab" id="pres-open" aria-controls="pres" aria-expanded="false" aria-label="Abrir la guía de la demo" title="Guía de la demo">
+    <img src="img/logo-siempre-cerca.jpg" alt=""><span class="lbl">Guía de la demo</span>
+  </button>
+
+  <aside class="pres" id="pres" aria-label="Guía de la demo" hidden>
+    <div class="pres-head">
+      <img src="img/logo-siempre-cerca.jpg" alt="Logo de Siempre Cerca">
+      <div><p class="pres-kicker">Siempre Cerca · prototipo</p><h1>Modo Acompañado</h1></div>
+      <button type="button" class="pres-close" id="pres-close" aria-label="Cerrar la guía">✕</button>
+    </div>
+
+    <div class="pres-body">
+      <div class="mode-switch">
+        <span class="mode-label" id="lbl-mode">Modo Acompañado</span>
+        <button type="button" class="switch" id="sw-mode" role="switch" aria-checked="false" aria-labelledby="lbl-mode"><span></span></button>
+        <span class="mode-state" id="mode-state">Apagado</span>
+      </div>
+
+      <section>
+        <h3>Recorrido</h3>
+        <ol class="route" id="route"></ol>
+      </section>
+
+      <section>
+        <h3 id="lbl-case">Qué encuentra Cerca al pagar</h3>
+        <div class="seg" role="radiogroup" aria-labelledby="lbl-case" id="case-seg">
+          <button type="button" id="case-verde" data-case="verde" role="radio" class="seg-btn"><i class="dot verde"></i>Verde</button>
+          <button type="button" id="case-amarillo" data-case="amarillo" role="radio" class="seg-btn"><i class="dot amarillo"></i>Amarillo</button>
+          <button type="button" id="case-rojo" data-case="rojo" role="radio" class="seg-btn"><i class="dot rojo"></i>Rojo</button>
+        </div>
+        <p class="hint" id="case-hint"></p>
+      </section>
+
+      <article class="why" id="why"></article>
+
+      <details class="real">
+        <summary>Qué funciona y qué está simulado</summary>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr><td>Recorrido de compra completo, con y sin acompañamiento</td><td><span class="pill ok">Funciona</span></td></tr>
+              <tr><td>Agrandar letra y botones, esconder distracciones</td><td><span class="pill ok">Funciona</span></td></tr>
+              <tr><td>Resaltar el próximo paso</td><td><span class="pill ok">Funciona</span></td></tr>
+              <tr><td>Leer en voz alta y «Tocar y escuchar»</td><td><span class="pill ok">Funciona</span></td></tr>
+              <tr><td>Reconocer que se entró a una tienda</td><td><span class="pill sim">Simulado</span></td></tr>
+              <tr><td>Semáforo Cerca (3 casos precargados)</td><td><span class="pill sim">Simulado</span></td></tr>
+              <tr><td>Búsqueda por voz</td><td><span class="pill sim">Simulado</span></td></tr>
+              <tr><td>Llamada a un familiar o a un operador</td><td><span class="pill sim">Simulado</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hint"><b>Falta validar:</b> pruebas con personas mayores, permisos para mostrarse encima de otras apps, acuerdos con tiendas y bancos, operadores capacitados.</p>
+      </details>
+
+      <div class="pres-foot">
+        <button type="button" class="ghost-btn" id="btn-reset">Reiniciar demo</button>
+        <span class="hint">Mercadia es una tienda ficticia. Nada compra, cobra ni llama de verdad.</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
